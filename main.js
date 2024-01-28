@@ -65,6 +65,8 @@ function cambiarImagenAleatoria() {
     imageName = 'pregunta';  // Asignar un nombre que identifique la imagen de pregunta
     console.log(imageName);
 
+    let tiempoInicio = Date.now(); // Obtener el tiempo actual
+
     // Establecer un temporizador para cambiar a una imagen aleatoria después de 0.2 segundos
     setTimeout(function () {
         const randomIndex = Math.floor(Math.random() * imagenes.length);
@@ -74,10 +76,35 @@ function cambiarImagenAleatoria() {
 
         // Establecer un nuevo intervalo después de cambiar la imagen aleatoria
         intervalId = setInterval(function () {
-            cambiarImagenAleatoria();
-        }, tiempoEleccion);
+            let tiempoActual = Date.now();
+            let tiempoTranscurrido = tiempoActual - tiempoInicio;
+
+            if (tiempoTranscurrido >= tiempoEleccion) {
+                // Si ha pasado el tiempo de espera y no se ha seleccionado nada
+                if (imageName === 'bomba') {
+                    // Si la imagen es la bomba, el usuario gana un punto
+                    puntos++;
+                    setPuntos.innerHTML = puntos;
+                    console.log('¡Ganaste un punto! Puntos: ' + puntos);
+                } else {
+                    // Si la imagen no es la bomba, el usuario pierde
+                    perdiste();
+                }
+
+                // Cambiar a una nueva imagen aleatoria
+                const newRandomIndex = Math.floor(Math.random() * imagenes.length);
+                imagenElement.src = imagenes[newRandomIndex].url;
+                imageName = imagenes[newRandomIndex].name;
+                console.log(imageName);
+
+                // Reiniciar el tiempo de inicio
+                tiempoInicio = Date.now();
+            }
+
+        }, 100); // Verificar cada 100 milisegundos (ajustar según sea necesario)
     }, 200);
 }
+
 
 
 function VerificarImagen(id) {
