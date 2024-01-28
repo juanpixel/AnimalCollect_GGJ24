@@ -31,6 +31,9 @@ let imageName;
 let intervalId; // Variable para almacenar el ID del intervalo
 let juegoActivo = true;
 
+let jaja = new Audio('./Sound/jaja.mp3')
+let pop = new Audio('./Sound/pop.mp3')
+
 
 btnVolver.addEventListener('click', cerrar);
 
@@ -48,14 +51,17 @@ function iniciarJuego() {
 
         // Event listeners para los botones
         btnOveja.addEventListener('click', function () {
+            pop.play()
             VerificarImagen(btnOveja.id);
         });
     
         btnVaca.addEventListener('click', function () {
+            pop.play()
             VerificarImagen(btnVaca.id);
         });
     
         btnPollo.addEventListener('click', function () {
+            pop.play()
             VerificarImagen(btnPollo.id);
         })
     }
@@ -138,6 +144,8 @@ function perdiste(){
     setPRecord.innerHTML = puntos
     juegoActivo = false
     perdisteSection.classList.remove('oculto')
+
+    jaja.play()
 }
 
 iniciarJuego();

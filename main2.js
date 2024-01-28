@@ -40,6 +40,9 @@ let intervalId; // Variable para almacenar el ID del intervalo
 let juegoActivo = true;
 let botonPerdido;
 
+let jaja = new Audio('./Sound/jaja.mp3')
+let pop = new Audio('./Sound/pop.mp3')
+
 
 btnVolver.addEventListener('click', cerrar);
 
@@ -57,26 +60,32 @@ function iniciarJuego() {
 
         // Event listeners para los botones
         btnOveja.addEventListener('click', function () {
+            pop.play()
             VerificarImagen(btnOveja.id);
         });
     
         btnVaca.addEventListener('click', function () {
+            pop.play()
             VerificarImagen(btnVaca.id);
         });
     
         btnPollo.addEventListener('click', function () {
+            pop.play()
             VerificarImagen(btnPollo.id);
         })
 
         btnOveja2.addEventListener('click', function () {
+            pop.play()
             VerificarImagen(btnOveja2.id);
         });
     
         btnVaca2.addEventListener('click', function () {
+            pop.play()
             VerificarImagen(btnVaca2.id);
         });
     
         btnPollo2.addEventListener('click', function () {
+            pop.play()
             VerificarImagen(btnPollo2.id);
         })
     }
@@ -177,6 +186,8 @@ function perdiste() {
 
     // Reiniciar botonPerdido a undefined
     botonPerdido = undefined;
+
+    jaja.play()
 }
 
 
