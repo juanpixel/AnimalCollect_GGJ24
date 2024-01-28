@@ -8,11 +8,38 @@ body{
     place-items: center;
     background: #B2BCC5;
     font-family: 'Farro', sans-serif;
+    box-sizing: border-box;
 }
 
 main{
     width: 90%;
 
+}
+
+
+
+.logo{
+    width: 271px;
+    box-sizing: border-box;
+    margin-top: 48px;
+    margin-bottom: 50px;
+}
+
+.logo img{
+    width: 100%;
+}
+.btnRegular{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("./IMG/btn.png");
+    width: 271px;
+    height: 101px;
+    text-decoration: none;
+    color: #303A3C;
+    font-size: 30px;
+    margin-bottom: 24px;
 }
 
 .hud{
