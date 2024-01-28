@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Collect</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Farro:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="hud">
+            <button type="button" class="record">
+                <img src="./IMG/volver.png" alt="">
+            </button>
+
+            <div class="record">
+                <p>Record:</p>
+                <p id="puntos">0</p>
+            </div>
+        </div>
+
+        <div class="display">
+            <figure>
+                <img src="./IMG/bomba.png" alt="Elemento">
+            </figure>
+        </div>
+
+
+
+        <section class="controles">
+            <figure id="oveja" class="btn">
+                <img src="./IMG/btnOvjeja.png" alt="oveja">
+            </figure>
+            <figure id="vaca" class="btn">
+                <img src="./IMG/btnVaca.png" alt="vaca">
+            </figure>
+            <figure id="pollo" class="btn">
+                <img src="./IMG/btnPollo.png" alt="pollo">
+            </figure>
+        </section>
+    </main>
+
+    <section id="perdiste" class="perdiste oculto">
+        <figure>
+            <img src="./IMG/bomba.png" alt="">
+        </figure>
+
+        <div class="textos">
+            <h2>Perdiste</h2>
+            <h4>Record</h4>
+            <p id="record">XXX</p>
+        </div>
+
+        <figure id="volver" class="btnVolver">
+            <img src="./IMG/btnVolverajugar.png" alt="">
+        </figure>
+        
+    </section>
+
+    <script src="./main.js"></script>
+
+</body>
+</html>
