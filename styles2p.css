@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    background: #B2BCC5;
+    font-family: 'Farro', sans-serif;
+    box-sizing: border-box;
+}
+
+main{
+    width: 90%;
+
+}
+
+
+.pantalla{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.rotado{
+    transform: rotate(90deg);
+}
+
+.hud{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.hud button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hud .record{
+    display: flex;
+}
+
+.display{
+    display: grid;
+    place-content: center;
+}
+
+.display figure{
+    margin-top: 40px;
+    max-width: 150px;
+
+}
+
+.display figure img{
+    max-width: 100%;
+}
+
+.controles{
+    display: flex; 
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw; 
+    box-sizing: border-box;
+    background-color: #F6AB73;
+    padding: 30px;
+}
+
+.controles2{
+    display: flex; 
+    justify-content: space-around;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    box-sizing: border-box;
+    background-color: #F6AB73;
+    padding: 30px; 
+    transform: rotate(180deg);
+}
+
+.controles figure{
+    cursor: pointer;
+    margin: 4px;
+    box-sizing: border-box;
+}
+
+.controles2 figure{
+    cursor: pointer;
+    margin: 4px;
+    box-sizing: border-box;
+}
+
+.rotador{
+    transform: rotate(90deg);
+}
+
+.perdiste{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+    background-color: #be5727b0;
+    background: linear-gradient(0deg, #BE5727, #be572787);
+    backdrop-filter: blur(10px);
+    background: blur;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    color: white;
+}
+
+
+.perdiste figure{
+    width: 100px;
+    margin: 0 auto;
+}
+
+.perdiste figure img{
+    width: 100%;
+}
+
+
+
+.perdiste .btnVolver{
+    width: 270px;
+    cursor: pointer;
+}
+
+.perdiste .btnVolver img{
+    width: 100%;
+}
+
+.oculto{
+    display: none;
+}
+
+.perdiste .textos{
+    text-align: center;
+    margin-bottom: 24px;
+}

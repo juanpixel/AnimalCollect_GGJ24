@@ -119,7 +119,7 @@ function VerificarImagen(id) {
         puntos++;
         setPuntos.innerHTML=puntos
         console.log('Respuesta correcta! Puntos: ' + puntos);
-        tiempoEleccion = tiempoEleccion * 0.9
+        tiempoEleccion = tiempoEleccion * 0.95
         cambiarImagenAleatoria();
     } else {
         perdiste();
