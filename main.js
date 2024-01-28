@@ -35,6 +35,7 @@ btnVolver.addEventListener('click', cerrar);
 
 function cerrar() {
     perdisteSection.classList.add('oculto');
+    setPRecord.innerHTML = 0
     cambiarImagenAleatoria()
 }
 
@@ -57,17 +58,27 @@ function iniciarJuego() {
 
 function cambiarImagenAleatoria() {
     reiniciarIntervalo(); // Reiniciar el intervalo antes de cambiar la imagen
-    const randomIndex = Math.floor(Math.random() * imagenes.length);
+
+    // Mostrar la imagen de pregunta antes de cambiar a una imagen aleatoria
     const imagenElement = document.querySelector(".display img");
-    imagenElement.src = imagenes[randomIndex].url;
-    imageName = imagenes[randomIndex].name;
+    imagenElement.src = "./IMG/pregunta.png";
+    imageName = 'pregunta';  // Asignar un nombre que identifique la imagen de pregunta
     console.log(imageName);
 
-    // Establecer un nuevo intervalo después de cambiar la imagen
-    intervalId = setInterval(function () {
-        cambiarImagenAleatoria();
-    }, tiempoEleccion);
+    // Establecer un temporizador para cambiar a una imagen aleatoria después de 0.2 segundos
+    setTimeout(function () {
+        const randomIndex = Math.floor(Math.random() * imagenes.length);
+        imagenElement.src = imagenes[randomIndex].url;
+        imageName = imagenes[randomIndex].name;
+        console.log(imageName);
+
+        // Establecer un nuevo intervalo después de cambiar la imagen aleatoria
+        intervalId = setInterval(function () {
+            cambiarImagenAleatoria();
+        }, tiempoEleccion);
+    }, 200);
 }
+
 
 function VerificarImagen(id) {
     reiniciarIntervalo(); // Reiniciar el intervalo al seleccionar una opción correcta
