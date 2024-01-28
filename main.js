@@ -29,31 +29,37 @@ let puntos = 0;
 let tiempoEleccion = 3000; // 3 segundos para elegir por defecto
 let imageName;
 let intervalId; // Variable para almacenar el ID del intervalo
+let juegoActivo = true;
 
 
 btnVolver.addEventListener('click', cerrar);
 
 function cerrar() {
     perdisteSection.classList.add('oculto');
-    setPRecord.innerHTML = 0
+    setPRecord.innerHTML = "0"
+    juegoActivo = true
+    puntos = 0
     cambiarImagenAleatoria()
 }
 
 function iniciarJuego() {
-    cambiarImagenAleatoria();
+    if(juegoActivo){
+        cambiarImagenAleatoria();
 
-    // Event listeners para los botones
-    btnOveja.addEventListener('click', function () {
-        VerificarImagen(btnOveja.id);
-    });
+        // Event listeners para los botones
+        btnOveja.addEventListener('click', function () {
+            VerificarImagen(btnOveja.id);
+        });
+    
+        btnVaca.addEventListener('click', function () {
+            VerificarImagen(btnVaca.id);
+        });
+    
+        btnPollo.addEventListener('click', function () {
+            VerificarImagen(btnPollo.id);
+        })
+    }
 
-    btnVaca.addEventListener('click', function () {
-        VerificarImagen(btnVaca.id);
-    });
-
-    btnPollo.addEventListener('click', function () {
-        VerificarImagen(btnPollo.id);
-    });
 }
 
 function cambiarImagenAleatoria() {
@@ -124,11 +130,14 @@ function reiniciarIntervalo() {
     clearInterval(intervalId); // Detener el intervalo actual
 }
 
-iniciarJuego();
+
 
 function perdiste(){
     console.log("perdiste")
     setPuntos.innerHTML= 0
     setPRecord.innerHTML = puntos
+    juegoActivo = false
     perdisteSection.classList.remove('oculto')
 }
+
+iniciarJuego();
