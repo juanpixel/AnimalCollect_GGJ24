@@ -18,21 +18,17 @@ main{
 
 
 .pantalla{
-    display: grid;
-    place-items: center;
     height: 100vh;
+    width: 100%;
 }
 
-.rotado{
-    transform: rotate(90deg);
-}
 
 .hud{
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    margin-top: 24px;
+    margin: 24px;
 }
 
 .hud button{
@@ -48,17 +44,17 @@ main{
 .display{
     display: grid;
     place-content: center;
+    width: 100%;
 }
 
 .display figure{
     margin-top: 40px;
-    max-width: 150px;
+    max-width: 50%;
+    width: 100%;
+    display: flex;
 
 }
 
-.display figure img{
-    max-width: 100%;
-}
 
 .controles{
     display: flex; 
@@ -66,23 +62,44 @@ main{
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100vw; 
+    width: 50vw; 
     box-sizing: border-box;
     background-color: #F6AB73;
     padding: 30px;
+}
+
+.btn{
+    position: relative;
+    max-width: 30%;
+}
+
+.btn .key{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    background-color: #303A3C;
+    color: #F6E7D4;
+}
+
+.btn img{
+    width: 100%;
 }
 
 .controles2{
     display: flex; 
     justify-content: space-around;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw; 
+    bottom: 0;
+    right: 0;
+    width: 50vw; 
     box-sizing: border-box;
     background-color: #F6AB73;
     padding: 30px; 
-    transform: rotate(180deg);
 }
 
 .controles figure{
@@ -97,9 +114,6 @@ main{
     box-sizing: border-box;
 }
 
-.rotador{
-    transform: rotate(90deg);
-}
 
 .perdiste{
     position: absolute;
@@ -152,5 +166,100 @@ main{
     top: 3px;
     color: #BE5727;
     font-weight: bold;
+}
+
+.vida{
+    max-width: 300px;
+    height: 31px;
+    background-color: #B69E96;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid #303A3C;
+    position: relative;
+    margin: 0 auto;
+}
+
+.vida p{
+    position: absolute;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    padding-top: 6px;
+    
+}
+
+.vidaRestante{
+    height: 100%;
+    background-color: #BE5727;
+}
+
+@media screen and (max-width: 600px){
+
+    .controles{
+        display: flex; 
+        justify-content: space-around;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100vw; 
+        box-sizing: border-box;
+        background-color: #F6AB73;
+        padding: 30px 12px 12px 12px;
+    }
+   
+    .controles2{
+        display: flex; 
+        justify-content: space-around;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: unset;
+        right: unset;
+        width: 100vw; 
+        box-sizing: border-box;
+        background-color: #F6AB73;
+        padding: 30px 12px 12px 12px;;
+        transform: rotate(180deg);
+    }
+
+    .controles figure, .controles2 figure{
+        max-width: 20%;
+    }
+
+    .btn .key{
+        display: none;
+    }
+
+    .pantalla{
+        
+        display: grid;
+        place-items: center;
+    }
+
+    .hud{
+        margin: 0 12px;
+    }
+
+    .display{
+        display: grid;
+        place-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .display figure{
+        margin-top: 0;
+    }
+
+    .display figure img{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .rotado{
+        transform: rotate(90deg);
+    }
+
+
+
 }
 
