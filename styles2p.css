@@ -48,11 +48,14 @@ main{
 }
 
 .display figure{
-    margin-top: 40px;
-    max-width: 50%;
     width: 100%;
     display: flex;
+    justify-content: center;
 
+}
+
+.display figure img{
+    width: 80%;
 }
 
 
@@ -248,6 +251,7 @@ main{
     
     .display figure{
         margin-top: 0;
+        max-width: 50%;
     }
 
     .display figure img{
