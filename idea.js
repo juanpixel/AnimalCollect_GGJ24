@@ -70,6 +70,8 @@ btnOveja.addEventListener('click', () => {
     jugador1 = 'oveja'
     seleccion1 = 'oveja'
     seleccionarRespuestaTouch()
+    jugador1 = null
+    seleccion1 = null
 });
 
 btnVaca.addEventListener('click', () =>{
@@ -77,6 +79,8 @@ btnVaca.addEventListener('click', () =>{
   jugador1 = 'vaca'
   seleccion1 = 'vaca'
   seleccionarRespuestaTouch()
+  jugador1 = null
+  seleccion1 = null
 });
 
 btnPollo.addEventListener('click', () =>{
@@ -84,18 +88,24 @@ btnPollo.addEventListener('click', () =>{
   jugador1 = 'pollo'
   seleccion1 = 'pollo'
   seleccionarRespuestaTouch()
+  jugador1 = null
+  seleccion1 = null
 });
 btnOveja2.addEventListener('click', function () {
   pop.play();
   jugador2 = 'oveja'
   seleccion2 = 'oveja'
   seleccionarRespuestaTouch()
+  jugador2 = null
+  seleccion2 = null
 });
 btnVaca2.addEventListener('click', function () {
   pop.play();
   jugador2 = 'vaca'
   seleccion2 = 'vaca'
   seleccionarRespuestaTouch()
+  jugador2 = null
+  seleccion2 = null
 });
 
 btnPollo2.addEventListener('click', function () {
@@ -103,6 +113,8 @@ btnPollo2.addEventListener('click', function () {
   jugador2 = 'pollo'
   seleccion2 = 'pollo'
   seleccionarRespuestaTouch()
+  jugador2 = null
+  seleccion2 = null
 })
 
 

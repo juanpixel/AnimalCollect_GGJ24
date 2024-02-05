@@ -193,7 +193,7 @@ function delay(ms) {
 async function quitarVida() {
     const intervalo = 100; // Intervalo de tiempo para actualizar el porcentaje (en milisegundos)
 
-    const decrementoPorIntervalo = (100 / (tiempoEleccion / intervalo)); // Decremento por cada intervalo
+    const decrementoPorIntervalo = (100 / (tiempoEleccion / 100)); // Decremento por cada intervalo
 
     const intervalId = setInterval(() => {
         if (vidaRestante > 0) {
