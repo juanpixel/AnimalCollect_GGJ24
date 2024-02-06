@@ -6,10 +6,6 @@ const btnOveja = document.querySelector('#oveja');
 const btnVaca = document.querySelector('#vaca');
 const btnPollo = document.querySelector('#pollo');
 
-const btnOveja2 = document.querySelector('#oveja2');
-const btnVaca2 = document.querySelector('#vaca2');
-const btnPollo2 = document.querySelector('#pollo2');
-
 const setPuntos = document.querySelector('#puntos');
 const setPRecord = document.querySelector('#record');
 const perdisteSection = document.querySelector('#perdiste');
@@ -22,10 +18,10 @@ let pop = new Audio('./Sound/pop.mp3');
 let vidaRestante = 100;
 vida.style.width = `${vidaRestante}%`;
 
+let puntos = 0;
 let juegoActivo = true
 let tiempo = 3000
 let jugador1 = null
-let jugador2 = null
 let revisando
 
 const imagenes = [
@@ -69,20 +65,7 @@ btnPollo.addEventListener('click', () => {
   jugador1 = 'pollo'
 });
 
-btnOveja2.addEventListener('click', () => {
-  pop.play();
-  jugador2 = 'oveja'
-});
 
-btnVaca2.addEventListener('click', () => {
-pop.play();
-jugador2 = 'vaca'
-});
-
-btnPollo2.addEventListener('click', () => {
-pop.play();
-jugador2 = 'pollo'
-});
 
 /// touch
 
@@ -98,20 +81,6 @@ btnPollo.addEventListener('touch', () => {
   btnPollo.click()
 });
 
-btnOveja2.addEventListener('touch', () => {
-pop.play();
-btnOveja2.click()
-});
-
-btnVaca2.addEventListener('touch', () => {
-pop.play();
-btnOveja2.click()
-});
-
-btnPollo2.addEventListener('touch', () => {
-pop.play();
-btnOveja2.click()
-});
 
 
 function seleccionarTeclado(evento){
@@ -126,18 +95,6 @@ function seleccionarTeclado(evento){
 
     case "e":
       btnPollo.click()
-      break
-
-    case 'ArrowLeft':
-      btnOveja2.click()
-      break
-    
-    case "ArrowDown" :
-      btnVaca2.click()
-      break
-
-    case "ArrowRight":
-      btnPollo2.click()
       break
   }
 }
@@ -158,7 +115,7 @@ function mostrarImagen(){
 }
 
 function seleccionarRespuesta(){
-  if(jugador1 && jugador2){
+  if(jugador1){
     console.log('selección realizada ') 
     clearInterval(revisando)
     revisarSeleccion();
@@ -185,7 +142,7 @@ function revisarTiempo(){ // Esta función hace la cuenta de tiempo
 
       console.log(tiempoTransurrido)
 
-      console.log(jugador1,jugador2)
+      console.log(jugador1)
       
       vida.style.width = `${vidaRestante}%`;
 
@@ -202,17 +159,9 @@ function revisarTiempo(){ // Esta función hace la cuenta de tiempo
           vida.style.width = `${vidaRestante}%`
           revisarTiempo()
         }else{
-          if (!jugador1  && !jugador2 ){
-            setPRecord.innerHTML = "Ninguno selecciono";
+          if (!jugador1){
+            setPRecord.innerHTML = "No seleccionaste";
             perdiste()
-          }else if(jugador1 && !jugador2){
-            setPRecord.innerHTML = "Jugador 2";
-            perdiste()
-            console.log('jugador 2 no selecciono')
-          }else if (!jugador1 && jugador2){
-            setPRecord.innerHTML = "Jugador 1";
-            perdiste()
-            console.log('jugador 1 no selecciono')
           }
 
           clearInterval(revisando)
@@ -229,40 +178,26 @@ function revisarTiempo(){ // Esta función hace la cuenta de tiempo
 
 function revisarSeleccion(){
   let jugador1Gana = false
-  let jugador2Gana = false
 
-  console.log(jugador1 + "ademas de " +jugador2)
+  console.log(jugador1)
 
   if(jugador1=== imageName){
     jugador1Gana = true
   }
 
-  if(jugador2 === imageName){
-    jugador2Gana = true
-  }
 
-  if(jugador1Gana && jugador2Gana){
+  if(jugador1Gana){
+    puntos++
     jugador1Gana = false
-    jugador2Gana = false
     jugador1 = null
-    jugador2 = null
     tiempo = tiempo*0.95
     vidaRestante = 100
     vida.style.width = `${vidaRestante}%`
+    setPuntos.innerHTML = puntos;
     iniciarJuego()
-  }else if(jugador1Gana && !jugador2Gana){
-    juegoActivo = false
-    setPRecord.innerHTML = "Jugador 2";
-    perdiste()
-    console.log('Jugador 2 pierde')
-    
-  }else if(!jugador1Gana && jugador2Gana){
-    juegoActivo = false
-    setPRecord.innerHTML = "Jugador ";
-    perdiste()
   }else{
     juegoActivo = false
-    setPRecord.innerHTML = "Ambos perdieron";
+    setPRecord.innerHTML = "Incorrecto";
     perdiste()
   }
 }
@@ -272,7 +207,6 @@ function revisarSeleccion(){
 function iniciarJuego(){
 
   jugador1 = null
-  jugador2 = null
   
   if(juegoActivo){
     console.log("mostrado imagen")
@@ -284,6 +218,8 @@ function iniciarJuego(){
 
 function perdiste() {
   jaja.play();
+  setPuntos.innerHTML = 0;
+  setPRecord.innerHTML = puntos;
   perdisteSection.classList.remove('oculto'); 
 }
 
@@ -291,7 +227,6 @@ function cerrar() {
   perdisteSection.classList.add('oculto');
   tiempo = 3000
   jugador1 = null
-  jugador2 = null
   juegoActivo = true
   clearInterval(revisando)
   vidaRestante = 100

@@ -93,8 +93,8 @@ main{
 }
 
 .controles{
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -110,6 +110,7 @@ main{
 .btn{
     position: relative;
     max-width: 30%;
+    margin: 0 12px;
 }
 
 .btn .key{
@@ -238,4 +239,12 @@ main{
 .vidaRestante{
     height: 100%;
     background-color: #BE5727;
+}
+
+@media screen and (max-width: 600px){
+
+    .btn .key{
+        display: none;
+    }
+
 }

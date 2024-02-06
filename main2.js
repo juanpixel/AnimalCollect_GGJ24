@@ -258,7 +258,7 @@ function revisarSeleccion(){
     
   }else if(!jugador1Gana && jugador2Gana){
     juegoActivo = false
-    setPRecord.innerHTML = "Jugador ";
+    setPRecord.innerHTML = "Jugador 1";
     perdiste()
   }else{
     juegoActivo = false
