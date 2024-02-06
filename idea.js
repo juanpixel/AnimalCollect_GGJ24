@@ -1,12 +1,4 @@
-// Aparece una imagen en pantalla
-// inicia el tiempo regresivo = a tiempoElección
-// si tiempoElección llega a 0 Jugador 1 y 2 pierden
-// el sistema revisa cada 100ms si jugador 1 presiono "q" o "w" o "e" y si jugador 2 presiono "arrowLwft" o "arrowDown" o "arrowRigth"
-// si jugador 1 y jugador 2 seleccionaron alguna tecla indicada el sistema revisa si jugador 1 y jugador 2 acertaron
-// si el jugador 1 no acerto el sistema indica que peridio el jugador 1
-// si el jugador 2 no acerto elsistama indica que perdio jugador 2
-// si ninguno acierta el sistema indica que ambos jugadores perdieron
-// si ambos jugadores aciertan tiempoelección se multipica por 0.95, puntos++ y se inicia el juego nuevamente 
+//Elementos traidos del HTML
 
 const btnVolver = document.querySelector('#volver');
 
@@ -94,35 +86,32 @@ jugador2 = 'pollo'
 
 /// touch
 
-/* btnOveja.addEventListener('touchstart', () => {
-  pop.play();
-  jugador1 = 'oveja'
+btnOveja.addEventListener('touch', () => {
+  btnOveja.click()
 });
 
-btnVaca.addEventListener('touchstart', () => {
-pop.play();
-jugador1 = 'vaca'
+btnVaca.addEventListener('touch', () => {
+  btnVaca.click()
 });
 
-btnPollo.addEventListener('touchstart', () => {
-pop.play();
-jugador1 = 'pollo'
+btnPollo.addEventListener('touch', () => {
+  btnPollo.click()
 });
 
-btnOveja2.addEventListener('touchstart', () => {
+btnOveja2.addEventListener('touch', () => {
 pop.play();
-jugador2 = 'oveja'
+btnOveja2.click()
 });
 
-btnVaca2.addEventListener('touchstart', () => {
+btnVaca2.addEventListener('touch', () => {
 pop.play();
-jugador2 = 'vaca'
+btnOveja2.click()
 });
 
-btnPollo2.addEventListener('touchstart', () => {
+btnPollo2.addEventListener('touch', () => {
 pop.play();
-jugador2 = 'pollo'
-}); */
+btnOveja2.click()
+});
 
 
 function seleccionarTeclado(evento){
